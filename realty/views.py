@@ -63,7 +63,7 @@ class Realty_PageDetailView(DetailView, CategoryLlistMixin):
 
 
 class Realty_PageDetailView(DetailView, CategoryLlistMixin):
-    # Вывод страницы товара и под ключает ID  страницы товара  one_pagi_id
+    # Вывод страницы товара и под ключает ID  страницы товара  page_id
     template_name = "realty_page_noe.html"
     model = Realty_Page
     pk_url_kwarg = "page_id"
@@ -107,7 +107,7 @@ class Galary_imageListView(ListView, CategoryLlistMixin):
 
 
 class Galary_imageDetailView(DetailView, CategoryLlistMixin):
-    # Вывод страницы товара и под ключает ID  страницы товара  one_pagi_id
+    # Вывод страницы товара и под ключает ID  страницы товара  page_id
     template_name = "realty_page_noe.html"
     model = Galary_image
     pk_url_kwarg = "page_id"

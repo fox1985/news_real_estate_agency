@@ -1,0 +1,204 @@
+
+<!--- --->
+{#  #}
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block desc %}{{ realty_page.description }}{% endblock desc %}
+{% block keywords %}{{ realty_page.keywords }}{% endblock keywords %}
+
+
+{% block navbar %}
+
+
+<div class="navbar-header"><!---Кнопка Входа --->
+    <ul class="nav navbar-nav navbar-right">
+        {% if username %}
+        <li><a href="/auth/logout/">Выйти {{ username }}</a></li>
+        {% else %}
+        <li><a href="/auth/login/">Войти</a> </li>
+
+        {% endif %}
+
+    </ul>
+</div><!---Кнопка Входа --->
+
+
+
+<ul class="nav navbar-nav navbar-right"><!--Меню-->
+
+ {% for page in  categorys %}
+     <li><a href="{% url 'realty:realty_category_page' page.pk %}">{{ page.category_name }}</a></li>
+ {% endfor %}
+ </ul><!--Меню-->
+
+
+{% endblock %}
+
+
+
+
+{% block realty %}
+
+
+          {#    вызов функцию редактированья #}
+          <ol class="breadcrumb">
+              <li><a href="{% url 'realty:edit_page' page_id=realty_page.id %}">редактированья</a></li>
+              <li><a href="{% url 'realty:delete_page' page_id=realty_page.id %}">Удалить</a></li>
+          </ol>
+
+    {#    вызов функцию редактированья #}
+
+
+
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Индекаторы -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <!-- Индекаторы -->
+
+                    <!-- Слайдер -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+
+                            {% if realty_page.main_image %}<!---проверка Если картинка есть то выводит или нет то нет-->
+                            <a class="fancyimage" rel="group" href="{{ realty_page.main_image.url }}">
+                                <img class="img-responsive" src="{{ realty_page.main_image.url }}" alt="">
+                            </a>
+                            {% endif %}<!---проверка Если картинка есть то выводит или нет то нет-->
+
+                        </div>
+
+
+                            {#  Галирея  #}
+                         {% for gal in realty_page.main_image.all%}
+                        <div class="item">
+                        <a class="fancyimage" rel="group" href='{{ MEDIA_URL }} {{ gal.main_image.url }}'>
+                            <img class="img-responsive" src="{{ MEDIA_URL }} {{ gal.main_image.url}}" alt="">
+                        </a>
+
+                        </div>
+                        {% endfor %}
+                        {#  Галирея  #}
+
+                    </div> <!-- Слайдер -->
+
+                    <!-- Стрелка в лево -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <!-- Стрелка в право -->
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3>{{ realty_page.realty_name }}</h3>
+                <p>{% autoescape off %}{{ realty_page.body }}{% endautoescape %}</p>
+
+
+                <h3>Удобства</h3>
+                {% for info in realty_page.page_info.all %}<!--ManyToManyField--->
+                <ul>
+                    <li>{{ info.info_name }}</li>
+                </ul>
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-4"> {# Характеристеки  #}
+                <h3>Характеристеки</h3>
+                    <ul>
+
+                        <li>Вид: {{ realty_page.vid_name }}</li>
+
+                        <li>Тип: {{ realty_page.tip_name }}</li>
+
+                        <li>Город: {{ realty_page.city }}</li>
+
+                        <li>Спальни: {{ realty_page.bedrooms }}</li>
+
+                         {% if realty_page.rooms %}{# Если поля равно 0 то не показывать его #}
+                        <li>Комнат {{ realty_page.rooms}}</li>
+                        {% endif %}{# Если поля равно 0 то не показывать его #}
+
+                        <li>Санузлы {{ realty_page.bathrooms}}</li>
+
+                        {% if realty_page.area %}{# Если поля равно 0 то не показывать его #}
+                        <li>площадь {{ realty_page.area }} кв.м</li>
+                         {% endif %}{# Если поля равно 0 то не показывать его #}
+
+                        {% if realty_page.land_area %}{# Если поля равно 0 то не показывать его #}
+                        <li>площадь участка {{ realty_page.land_area }} кв.м </li>
+                        {% endif %}{# Если поля равно 0 то не показывать его #}
+
+                        <li>от моря {{ realty_page.from_the_sea }} м </li>
+                        <li>Этаж {{ realty_page.floor }}</li>
+
+                        <li>Регион: {{ realty_page.region }}</li>
+
+
+
+                    </ul>
+
+                </div> {# Характиристеки #}
+
+        </div>
+        <!-- /.row -->
+{#   #}
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header"><span class="glyphicon glyphicon-euro cnas">{{ realty_page.price }}</span><!--цена--->
+                 {% if realty_page.room_id %}{# Если поля  Номер ID равно 0 то не показывать его  #}
+                 Номер ID {{ realty_page.room_id }}
+                 {% endif %}{# Если поля  Номер ID равно 0 то не показывать его  #}
+                </h3>
+
+                <h3>
+                    {% if realty_page.prices %}{# Если поля скидка пустое то не показывать его #}
+                        <p style="color: red">Cкидка</p>
+                        <span class="glyphicon glyphicon-euro cnas">{{ realty_page.prices }}</span><!--скидка--->
+                    {% endif %}{# Если поля скидка пустое то не показывать его #}
+                </h3>
+                <hr>
+
+
+            </div>
+
+           {#  Галирея мини #}
+
+
+         {% for gal in realty_page.galary_image_set.all %}
+            <div class="col-sm-3 col-xs-6 thumb">
+
+             <a class="fancyimage" rel="group" href="{{ MEDIA_URL }} {{ gal.galary_image.url  }}">
+                   <img class="img-responsive" src="{{ MEDIA_URL }} {{ gal.galary_image.url }}" alt="">
+             </a>
+
+            </div>
+        {% endfor %}
+
+
+            {#  Галирея мини #}
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+
+
+{% block forma %}{% endblock %}
+{% endblock %}
+
+

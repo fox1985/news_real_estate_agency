@@ -1,0 +1,2 @@
+django==1.11.16
+django-cleanup==2.1.0

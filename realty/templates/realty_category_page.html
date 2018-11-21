@@ -1,0 +1,132 @@
+<!-- --->
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block javascript %}
+  {# JQUERY FILE UPLOAD SCRIPTS #}
+  <script src="{% static 'js/jquery.ui.widget.js' %}"></script>
+  <script src="{% static 'js/jquery.iframe-transport.js' %}"></script>
+  <script src="{% static 'js/jquery.fileupload.js' %}"></script>
+
+  {# STATIC REALTY #}
+  <script src="{% static 'js/basic-upload.js' %}"></script>
+{% endblock %}
+
+
+
+
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block navbar %}
+    <div class="navbar-header"><!---Кнопка Входа --->
+
+    <ul class="nav navbar-nav navbar-right">
+
+
+    </ul>
+    </div><!---Кнопка Входа --->
+
+
+
+
+
+        <!--Меню-->
+         <ul class="nav navbar-nav navbar-right"><!--Меню-->
+        {% for category in  categorys %}
+
+            <li><a href="{% url 'realty:realty_category_page' category.pk %}">{{ category.category_name }}</a></li>
+
+        {% endfor %}
+        <!--Меню-->
+         </ul>
+
+{% endblock %}
+
+
+{# Вторая страница #}
+{% block realty %}
+    <!--меню пользователя -->
+
+          <ol class="breadcrumb">
+
+           <li><a href="{% url 'realty:new_page' cat_id=category.id %}">Добавить</a></li>
+
+
+
+            </ol>
+
+       <!-- /меню пользователя -->
+
+
+
+
+    {# Выборка есть или нет категории #}
+        {% if  realty_pages %}
+
+        {# Выводит страницы #}
+        {% for  p in realty_pages %}
+            <div class="col-md-4 text-center"><!---text-center 2-->
+                <div class="thumbnail">
+                  <a href="{% url 'realty:realty_page_noe' p.pk %}"><img class="img-responsive" src="{{ MEDIA_URL }} {{ p.main_image.url }}"></a>
+                    <div class="caption">
+                        <h3>{{ p.realty_name }}<br>
+                            <small></small>
+
+                        </h3>
+                         {# убирает теги  html ckeditor #}
+                        <p>{% autoescape off %}{{ p.brief_description }}{% endautoescape %}</p>
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+
+                        <div class="panel-info"><!---Информацыя-->
+                           <span class="tip">Город:{{ p.city }}</span>
+                           <span class="tip">Для:{{ p.sale_and_rental }}</span>
+
+                            {% if p.rooms %}{# Если поля Комнат равно 0 то его не показывать #}
+                           <span class="tip">Комнат:{{ p.rooms }}</span>
+                            {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
+
+                            {% if p.floor %}{# Если поля Этаж равно 0 то его не показывать #}
+                           <span class="tip">Этаж:{{ p.floor }}</span>
+                            {% endif %}{# Если поля Этаж равно 0 то его не показывать #}
+
+                           <span class="glyphicon glyphicon-euro cnas">{{ p.price }}</span><!--цена--->
+
+                            {% if p.prices %}{# Если поля скидка пустое то не показывать его #}
+                            <span class="glyphicon glyphicon-euro cnas">скидка {{ p.prices }}</span><!--скидка--->
+                            {% endif %}{# Если поля скидка пустое то не показывать его #}
+                       </div><!---Информацыя-->
+
+
+                        <a role="button" href="{% url 'realty:realty_page_noe' p.pk%}" class="btn btn-primary">Подробно</a>
+                    </div>
+
+                </div>
+            </div><!---/text-center 2-->
+
+
+
+
+
+
+
+        {% endfor %}
+        {# Выводит страницы #}
+
+    {# Выборка есть или нет категории #}
+            {% else %}
+            <br>Нет такой категории<br>
+
+    {% endif %}
+   {# Выборка есть или нет категории #}
+
+{% endblock %}
+
+</div><!-- end panel-body-->

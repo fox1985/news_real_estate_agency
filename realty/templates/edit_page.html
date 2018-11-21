@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block realty %}
+
+     <p>Редактировать страницу</p>
+
+             <form action="" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+
+
+                {{ form.as_p}}
+                    <br>
+                 <button name="submit">Сохранить</button>
+
+             </form>
+
+
+
+{% endblock %}
+
+
+
+{# <input type="file" name="files" multiple/>  #}

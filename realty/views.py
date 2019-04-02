@@ -16,7 +16,7 @@ class CategoryLlistMixin(ContextMixin):
 
 class Realty_PageListView(ListView, CategoryLlistMixin):
     """Вывод страницы катигории  realty_pages"""
-    template_name = "realty_category_page.html"
+    template_name = "page/realty_category_page.html"
     context_object_name = 'realty_pages'
     queryset = Realty_Page.objects.order_by("realty_name")
 
@@ -46,7 +46,7 @@ class Realty_PageListView(ListView, CategoryLlistMixin):
 
 class Realty_PageDetailView(DetailView, CategoryLlistMixin):
     """Класс контролер подключает cat_id катигории """
-    template_name = "realty_category_page.html"
+    template_name = "page/realty_category_page.html"
     model = Realty_Page
     pk_url_kwarg = "cat_id"
 
@@ -64,7 +64,7 @@ class Realty_PageDetailView(DetailView, CategoryLlistMixin):
 
 class Realty_PageDetailView(DetailView, CategoryLlistMixin):
     # Вывод страницы товара и под ключает ID  страницы товара  page_id
-    template_name = "realty_page_noe.html"
+    template_name = "page/realty_page_noe.html"
     model = Realty_Page
     pk_url_kwarg = "page_id"
 
@@ -83,7 +83,7 @@ class Realty_PageDetailView(DetailView, CategoryLlistMixin):
 
 class Galary_imageListView(ListView, CategoryLlistMixin):
     """Вывод фото галирею """
-    template_name = "realty_page_noe.html"
+    template_name = "page/realty_page_noe.html"
     queryset = Galary_image.objects.all()
     cat = None
 
@@ -108,7 +108,7 @@ class Galary_imageListView(ListView, CategoryLlistMixin):
 
 class Galary_imageDetailView(DetailView, CategoryLlistMixin):
     # Вывод страницы товара и под ключает ID  страницы товара  page_id
-    template_name = "realty_page_noe.html"
+    template_name = "page/realty_page_noe.html"
     model = Galary_image
     pk_url_kwarg = "page_id"
 

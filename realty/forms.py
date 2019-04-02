@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from realty.models import Category,  Realty_Page
+from realty.models import Category,  Realty_Page, Galary_image
 
 from django import forms
 
@@ -19,6 +19,9 @@ class Form_realty_page(forms.ModelForm):
                   'room_id',
 
                   'brief_description', 'body', 'main_image'
+
+
+
                   ]
 
 
@@ -70,8 +73,6 @@ class Form_realty_page(forms.ModelForm):
 
                       'tip_name': 'Тип недвижимость',
 
-                      'page_info' : 'Что есть в доме',
-
                       'sale_and_rental' : 'Продажа или аренда',
 
                       'land_area': 'участка',
@@ -81,6 +82,15 @@ class Form_realty_page(forms.ModelForm):
 
 
 
+class Form_Galary_image(forms.ModelForm):
 
+    class Meta:
+        model = Galary_image
+
+        fields = ['galary_image']
+
+        labels = {
+            'galary_image': 'Загрузка фото',
+        }
 
 

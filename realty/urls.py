@@ -9,10 +9,7 @@
 from django.conf.urls import  url
 from realty.views import  Realty_PageListView, Realty_PageDetailView, Galary_imageDetailView, Galary_imageListView
 
-from realty.edit import Realty_PageCreate, Realty_PageUpdate, Realty_PageDelete
-
-
-
+from realty.edit import Realty_PageCreate, Realty_PageUpdate, Realty_PageDelete, dva_form
 
 urlpatterns = [
 
@@ -28,7 +25,7 @@ urlpatterns = [
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------
-    url(r'^(?P<cat_id>\d+)/add/$', Realty_PageCreate.as_view(), name="new_page"),# Добавить товар
+    url(r'^(?P<cat_id>\d+)/add/$', dva_form, name="new_page"),# Добавить товар
 
     url(r'^page/(?P<page_id>\d+)/edit/$', Realty_PageUpdate.as_view(), name='edit_page'),# редактировать товар
 
@@ -36,6 +33,7 @@ urlpatterns = [
 
 
     url(r'^(?:(?P<cat_id>\d+)/)?$', Realty_PageListView.as_view(), name='realty_category_page' ),# товар выводит на главную страницу
+
 
 
 ]

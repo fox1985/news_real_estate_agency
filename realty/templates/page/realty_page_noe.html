@@ -1,0 +1,196 @@
+{% extends 'main/base.html' %}
+<!--- --->
+{#  #}
+{% load staticfiles %}
+
+
+{% block desc %}{{ realty_page.description }}{% endblock desc %}
+{% block keywords %}{{ realty_page.keywords }}{% endblock keywords %}
+
+
+{% block navbar %}
+
+{% for page in  categorys %}<!--Меню-->
+    <ul class="main-menu"><li><a href="{% url 'realty:realty_category_page' page.pk %}">{{ page.category_name }}</a></li></ul>
+
+{% endfor %}<!--Меню-->
+
+
+{% endblock %}
+
+
+
+
+
+{% block realty %}
+
+
+
+
+
+
+    <!-- Page -->
+	<section class="page-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 single-list-page">
+                    <div class="single-list-slider owl-carousel" id="sl-slider">
+                    {# большая картинка галереи #}
+
+                        {# перебор фоток в галрреи #}
+                        {% for gal in realty_page.galary_image_set.all %}
+                        <div class="sl-item set-bg" data-setbg="{{ gal.galary_image.url }}">
+							<div class="rent-notic">{{ realty_page.sale_and_rental }}</div>
+						</div>
+                        {% endfor %}
+                       {# перебор фоток в галрреи #}
+
+
+                     {# большая картинка галереи #}
+                    </div>
+
+
+                    {# Маленькая галерея #}
+					<div class="owl-carousel sl-thumb-slider" id="sl-slider-thumb">
+
+                          {% for gal in realty_page.galary_image_set.all %}
+
+                          <div class="sl-thumb set-bg"
+                               data-setbg="{{ realty_page_noe.htmlMEDIA_URL }} {{ gal.galary_image.url}}">
+                          </div>
+
+                        {% endfor %}
+					</div>
+                    {# Маленькая галерея #}
+
+					<div class="single-list-content">
+
+						<div class="row">
+							<div class="col-xl-8 sl-title">
+								<h2>{{ realty_page.realty_name }}</h2>
+
+							</div>
+							<div class="col-xl-4">
+								<a href="#" class="price-btn">€ {{ realty_page.price }}</a>
+							</div>
+						</div>
+
+						<h3 class="sl-sp-title">Детали недвижимости</h3>
+						<div class="row property-details-list">
+
+                            <div class="col-md-4 col-sm-6">
+								<p><i class="fa fa-th-large"></i> {{ realty_page.land_area }} квадратных m2</p>
+								<p><i class="fa fa-bed"></i> {{ realty_page.bedrooms }} спален</p>
+
+							</div>
+
+
+							<div class="col-md-4 col-sm-6">
+                                {% if realty_page.garash %}{# Если поля Комнат равно 0 то его не показывать #}
+								<p><i class="fa fa-car"></i> {{ realty_page.garash }} гараж</p>
+                                {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
+
+                                {% if realty_page.room_id %}{# Если поля Комнат равно 0 то его не показывать #}
+								    <p><i class="fa fa-building-o"></i>{{ realty_page.room_id }} ID</p>
+                                {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
+
+							</div>
+
+
+
+							<div class="col-md-4">
+								<p><i class="fa fa-bath"></i> {{ realty_page.bathrooms }} Санузлы</p>
+								<p><i class="fa fa-trophy"></i> 5 лет</p>
+							</div>
+
+						</div>
+
+                        <h3 class="sl-sp-title">Описание</h3>
+                        <div class="description">
+							<p>{{ realty_page.body }}</p>
+							</div>
+
+
+                        <h3 class="sl-sp-title">Детали недвижимости</h3>
+						<div class="row property-details-list">
+                            {% for info in realty_page.page_info.all %}<!--ManyToManyField--->
+							<div class="col-md-4 col-sm-6">
+								<p><i class="fa fa-check-circle-o"></i>{{ info.info_name }}</p>
+
+							</div>
+                            {% endfor %}<!--ManyToManyField--->
+
+						</div>
+
+
+
+						<h3 class="sl-sp-title bd-no">Location</h3>
+						<div class="pos-map" id="map-canvas"></div>
+					</div>
+				</div>
+
+				<!-- sidebar -->
+				<div class="col-lg-4 col-md-7 sidebar">
+					<div class="author-card">
+						<div class="author-img set-bg" data-setbg="{% static 'img/author.jpg' %}"></div>
+						<div class="author-info">
+							<h5>Gina Wesley</h5>
+							<p>Real Estate Agent</p>
+						</div>
+						<div class="author-contact">
+							<p><i class="fa fa-phone"></i>(567) 666 121 2233</p>
+							<p><i class="fa fa-envelope"></i>ginawesley26@gmail.com</p>
+						</div>
+					</div>
+
+					<div class="contact-form-card">
+						<h5>У вас есть вопросы?</h5>
+						<form>
+							<input type="text" placeholder="Имя">
+							<input type="text" placeholder="email">
+                            <input type="text" placeholder="номер ID">
+
+							<textarea placeholder="Ваш вопрос"></textarea>
+							<button>Отправить</button>
+						</form>
+					</div>
+
+                    {# related-properties#}
+					<div class="related-properties">
+						<h2>Связанное свойство</h2>
+						<div class="rp-item">
+							<div class="rp-pic set-bg" data-setbg="{% static 'img/feature/1.jpg' %}">
+								<div class="sale-notic">FOR SALE</div>
+							</div>
+							<div class="rp-info">
+								<h5>1963 S Crescent Heights Blvd</h5>
+								<p><i class="fa fa-map-marker"></i>Los Angeles, CA 90034</p>
+							</div>
+							<a href="#" class="rp-price">€ {{ realty_page.price }}</a>
+						</div>
+
+					</div>{# /related-properties#}
+
+				</div>
+			</div><!-- /sidebar -->
+
+		</div><!--container-->
+	</section>
+	<!-- Page end -->
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

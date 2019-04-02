@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block javascript %}
+  {# JQUERY FILE UPLOAD SCRIPTS #}
+  <script src="{% static 'js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
+  <script src="{% static 'js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
+  <script src="{% static 'js/jquery-file-upload/jquery.fileupload.js' %}"></script>
+
+  {# PHOTOS PAGE SCRIPTS #}
+  <script src="{% static 'js/basic-upload.js' %}"></script>
+{% endblock %}
+
+
+
+{% block realty %}
+
+     <p>Добавить Старницу </p>
+
+    <div class="row">
+    <div class="col-md-4">
+
+         <form action="" method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+
+        {{realty_form }}
+
+             <br>
+             {{ galery_form}}
+
+        <br>
+
+     <button name="submit"  >Добавить страницу </button>
+
+         <br>
+
+         </form>
+
+        </div>
+
+    </div>
+
+
+{#форма загруски галерии #}
+
+
+<br>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{# <input type="file" name="files" multiple/>  #}
+
+
+

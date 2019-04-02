@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, ProcessFormView
+from django.http import JsonResponse, HttpResponseRedirect
+from django.shortcuts import render
+from django.template.response import TemplateResponse
+from django.views.generic.base import TemplateView, View
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, ProcessFormView, FormView
 from django.core.urlresolvers import reverse
 
-from realty.models import Category, Realty_Page
+from realty.models import Category, Realty_Page, Galary_image
 
 
 from realty.views import CategoryLlistMixin
 
-from  realty.forms import Form_realty_page
+from  realty.forms import Form_realty_page, Form_Galary_image
 
 
 
@@ -39,7 +43,7 @@ class  Rrealty_PageEditView(ProcessFormView):
 
 class Realty_PageCreate(CreateView, Rrealty_PageEditMixin):
     model = Realty_Page
-    template_name = "new_page.html"
+    template_name = "edit/new_page.html"
 
     fields = ['author', 'realty_name', 'category', 'vid_name', 'tip_name', 'page_info', 'price', 'sale_and_rental',
 
@@ -73,7 +77,7 @@ class Realty_PageCreate(CreateView, Rrealty_PageEditMixin):
 class Realty_PageUpdate(UpdateView, Rrealty_PageEditMixin, Rrealty_PageEditView):
     """редактировать товар"""
     model = Realty_Page
-    template_name = "edit_page.html"
+    template_name = "edit/edit_page.html"
     pk_url_kwarg = "page_id"
     success_url = '/'
 
@@ -93,7 +97,7 @@ class Realty_PageUpdate(UpdateView, Rrealty_PageEditMixin, Rrealty_PageEditView)
 class Realty_PageDelete(DeleteView, Rrealty_PageEditMixin, Rrealty_PageEditView):
     """Удалиить товары"""
     model = Realty_Page
-    template_name = "delete_page.html"
+    template_name = "edit/delete_page.html"
     pk_url_kwarg = "page_id"
 
     def post(self, request, *args, **kwargs):
@@ -103,6 +107,38 @@ class Realty_PageDelete(DeleteView, Rrealty_PageEditMixin, Rrealty_PageEditView)
     def get_context_data(self, **kwargs):
         context = super(Realty_PageDelete, self).get_context_data(**kwargs)
         return context
+
+
+
+
+
+def dva_form(request, cat_id):
+    if request.merhod == 'POST':
+        realty_form = Form_realty_page(request.POST, request.FILES)
+        galery_form = Form_Galary_image(request.POST, request.FILES)
+
+        if realty_form.is_valid() and galery_form.is_valid():
+            realty = realty_form.save()
+
+            gallery = galery_form.save(commit=False)
+            realty.realty_page_id = realty.id
+            gallery.galery_form.save()
+            return  HttpResponseRedirect('/')
+
+        else:
+            context = {
+                'realty_form': realty_form,
+                'galery_form': galery_form,
+
+            }
+
+    else:
+        context = {
+            'realty_form': Form_realty_page(),
+            'galery_form': Form_Galary_image(),
+
+        }
+    return TemplateResponse(request, 'edit/new_page.html', context)
 
 
 

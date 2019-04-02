@@ -18,8 +18,6 @@ class Category(models.Model):
         return u'Категория %s' % self.category_name
 
 
-
-
 class Info(models.Model):
     info_name = models.CharField(max_length=100, verbose_name='Удобства')
     def __unicode__(self):
@@ -39,7 +37,7 @@ class Realty_Page(models.Model):
     vid_name = models.CharField(max_length=100, verbose_name='вид', help_text='Вид недвижимости на пример новострой',blank=True)
     tip_name = models.CharField(max_length=100, verbose_name='Тип', help_text='Тип недвижимость',blank=True)
     page_info = models.ManyToManyField(Info, verbose_name='Удобства',help_text='Что есть в доме',blank=True)
-    price = models.CharField(verbose_name='Цена', max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='цена')
     sale_and_rental = models.CharField(max_length=100, verbose_name='Для', help_text='Продажа или аренда',blank=True)
     city = models.CharField(max_length=100, verbose_name='Город',blank=True)
     region = models.CharField(max_length=100, verbose_name='Регион',blank=True)
@@ -50,6 +48,7 @@ class Realty_Page(models.Model):
     land_area = models.IntegerField(verbose_name='площадь участка',default=0)
     from_the_sea = models.IntegerField(verbose_name='от моря',default=0)
     floor = models.IntegerField(verbose_name='Этаж',default=0)
+    garash = models.IntegerField(verbose_name='Гараж',default=0)
     room_id = models.IntegerField(verbose_name='Номер ID',default=0,)
     date = models.DateField(auto_now=True,  verbose_name='Дата')
     brief_description = models.TextField(blank=True, verbose_name='Краткое описания',)
@@ -83,7 +82,7 @@ class Realty_Page(models.Model):
 
 
 class Galary_image(models.Model):
-    realty_page = models.ForeignKey(Realty_Page, null=True)
+    realty_page = models.ForeignKey(Realty_Page)
     galary_image = models.ImageField(upload_to='galary/img',verbose_name='Картинка',blank=True)
     class Meta:
         db_table = 'galary_image'

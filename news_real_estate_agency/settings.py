@@ -80,6 +80,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'news_real_estate_agency.wsgi.application'
 
 
+
+
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -199,3 +202,4 @@ GEOPOSITION_MARKER_OPTIONS = {
 #django-geoposition------------------------------
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyCnZDIWTUThaxMRSsy6BazNadEXdvL69fo'
+

@@ -136,8 +136,7 @@ class Form_Galary_View(FormView):
 
 
 
-def successt(request):
-    return render(request, 'edit/success.html')
+
 
 
 

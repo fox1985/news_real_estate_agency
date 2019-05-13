@@ -60,8 +60,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
+
                 os.path.join(BASE_DIR, 'realty/templates'),
                 os.path.join(BASE_DIR, 'loginsys/templates'),
+                os.path.join(BASE_DIR, 'sendemail/templates'),
 
                  ]
         ,
@@ -202,4 +204,14 @@ GEOPOSITION_MARKER_OPTIONS = {
 #django-geoposition------------------------------
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyCnZDIWTUThaxMRSsy6BazNadEXdvL69fo'
+
+
+
+
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'artem-85-dav@yandex.ru'
+EMAIL_HOST_PASSWORD = '7059627216'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
 

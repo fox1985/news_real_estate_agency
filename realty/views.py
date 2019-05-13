@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
-from django.views.generic import FormView
-
 from realty.models import Category, Realty_Page, Galary_image
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.base import ContextMixin
+from django.views.generic.base import ContextMixin, View
+
+
+#---------------------------------------------------------------------------------
+
 
 class CategoryLlistMixin(ContextMixin):
     """Выводит меню категории"""
@@ -115,3 +117,15 @@ class Galary_imageDetailView(DetailView, CategoryLlistMixin):
     def get_context_data(self, **kwargs):
         context = super(Galary_imageDetailView, self).get_context_data(**kwargs)
         return context
+
+
+#---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

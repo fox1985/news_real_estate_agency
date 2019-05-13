@@ -82,7 +82,7 @@ class Realty_Page(models.Model):
 
 
 class Galary_image(models.Model):
-    realty_page = models.ForeignKey(Realty_Page)
+    realty_page = models.ForeignKey(Realty_Page, blank=True, null=True, on_delete=models.CASCADE)
     galary_image = models.ImageField(upload_to='galary/img',verbose_name='Картинка',blank=True)
     class Meta:
         db_table = 'galary_image'

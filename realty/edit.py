@@ -11,7 +11,7 @@ from realty.models import Category, Realty_Page, Galary_image
 
 from realty.views import CategoryLlistMixin
 
-from  realty.forms import Form_realty_page, Form_Galary_image
+from  realty.forms import Form_realty_page
 
 
 
@@ -112,36 +112,32 @@ class Realty_PageDelete(DeleteView, Rrealty_PageEditMixin, Rrealty_PageEditView)
 
 
 
-def dva_form(request, cat_id):
-    if request.merhod == 'POST':
-        realty_form = Form_realty_page(request.POST, request.FILES)
-        galery_form = Form_Galary_image(request.POST, request.FILES)
 
-        if realty_form.is_valid() and galery_form.is_valid():
-            realty = realty_form.save()
+class Form_Galary_View(FormView):
+    """Добавления товара через форму"""
+    form_class =  Form_realty_page
+    template_name = 'edit/new_page.html'
+    success_url = '/'  # переадресация на страницу в случае успешной отправки
 
-            gallery = galery_form.save(commit=False)
-            realty.realty_page_id = realty.id
-            gallery.galery_form.save()
-            return  HttpResponseRedirect('/')
-
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        galary_image = request.FILES.getlist('galary_image')
+        if form.is_valid():
+            pk = form.save().pk
+            realty_page = Realty_Page.objects.get(pk=pk)
+            if  galary_image:
+                for f in  galary_image:
+                    fl =  Galary_image(realty_page=realty_page, galary_image=f)
+                    fl.save()
+            return self.form_valid(form)
         else:
-            context = {
-                'realty_form': realty_form,
-                'galery_form': galery_form,
-
-            }
-
-    else:
-        context = {
-            'realty_form': Form_realty_page(),
-            'galery_form': Form_Galary_image(),
-
-        }
-    return TemplateResponse(request, 'edit/new_page.html', context)
+            return self.form_invalid(form)
 
 
 
+def successt(request):
+    return render(request, 'edit/success.html')
 
 
 

@@ -9,7 +9,9 @@ from django import forms
 
 
 
+
 class Form_realty_page(forms.ModelForm):
+    galary_image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
 
     class Meta:
         model = Realty_Page
@@ -81,16 +83,5 @@ class Form_realty_page(forms.ModelForm):
                       }
 
 
-
-class Form_Galary_image(forms.ModelForm):
-
-    class Meta:
-        model = Galary_image
-
-        fields = ['galary_image']
-
-        labels = {
-            'galary_image': 'Загрузка фото',
-        }
 
 

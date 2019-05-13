@@ -7,7 +7,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-class Galary_image_Admin(admin.StackedInline):
+class Galary_image_Admin(admin.TabularInline):
     model = Galary_image
     extra = 4
 

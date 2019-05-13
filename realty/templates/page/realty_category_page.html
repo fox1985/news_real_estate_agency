@@ -3,19 +3,6 @@
 {% extends 'main/base.html' %}
 {% load staticfiles %}
 
-{% block javascript %}
-<!--====== Javascripts & Jquery ======-->
-	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-	<script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
-	<script src="{% static 'js/magnific-popup.min.js' %}"></script>
-	<script src="{% static 'js/main.js' %}"></script>
-
-  {# STATIC REALTY #}
-  <script src="{% static 'js/basic-upload.js' %}"></script>
-{% endblock %}
-
 
 
 
@@ -45,9 +32,13 @@
 {% endblock %}
 
 
+
+
 {# Вторая страница #}
 {% block realty %}
     <!--меню пользователя -->
+
+
 
 
 
@@ -84,6 +75,8 @@
                                         {% if p.bathrooms %} {# Если поля Комнат равно 0 то его не показывать #}
 										<p><i class="fa fa-bed"></i> {{ p.bathrooms }} спальни</p>
                                         {% endif %} {# Если поля Комнат равно 0 то его не показывать #}
+
+
 									</div>
 
 									<div class="rf-right">
@@ -94,6 +87,11 @@
                                         {% if p.bathrooms %}{# Если поля Комнат равно 0 то его не показывать #}
 										<p><i class="fa fa-bath"></i> {{ p.bathrooms }} ванных комнатах</p>
                                         {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
+
+                                     {% if p.room_id %}{# Если поля Комнат равно 0 то его не показывать #}
+                                         <p><i class="fa fa-building-o"></i>{{ p.room_id }} ID</p>
+                                        {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
+
 									</div>
 								</div>
 

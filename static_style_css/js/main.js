@@ -27,7 +27,7 @@ $(window).on('load', function() {
 		Navigation
 	--------------------*/
 	$('.nav-switch').on('click', function(event) {
-		$('.page-menu').slideToggle(400);
+		$('.main-menu').slideToggle(400);
 		event.preventDefault();
 	});
 

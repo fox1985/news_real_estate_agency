@@ -9,7 +9,7 @@
 from django.conf.urls import  url
 from realty.views import  Realty_PageListView, Realty_PageDetailView, Galary_imageDetailView, Galary_imageListView
 
-from realty.edit import Realty_PageCreate, Realty_PageUpdate, Realty_PageDelete, Form_Galary_View
+from realty.edit import  Realty_PageUpdate, Realty_PageDelete, Form_Galary_View
 
 
 

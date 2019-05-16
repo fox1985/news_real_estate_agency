@@ -7,9 +7,9 @@
 
              <form action="" method="POST" enctype="multipart/form-data">
                  {% csrf_token %}
+                 <br>
+                {{ form.as_p }}
 
-
-                {{ form.as_p}}
                     <br>
                  <button name="submit">Сохранить</button>
 
@@ -20,5 +20,3 @@
 {% endblock %}
 
 
-
-{# <input type="file" name="files" multiple/>  #}

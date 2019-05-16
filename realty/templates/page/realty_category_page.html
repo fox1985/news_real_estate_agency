@@ -22,27 +22,34 @@
          <ul class="main-menu"><!--Меню-->
         {% for category in  categorys %}
 
+
+
             <li><a href="{% url 'realty:realty_category_page' category.pk %}">{{ category.category_name }}</a></li>
 
         {% endfor %}
+
+
+
 
          </ul>
      <!--Меню-->
 
 {% endblock %}
 
+   <!--меню пользователя -->
 
+            {% block home_menu %}
+
+			<a href="/"><i class="fa fa-home"></i>Home</a>
+            <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:new_page'  %}">Добавить</a></span>
+            {% endblock %}
+
+       <!-- /меню пользователя -->
 
 
 {# Вторая страница #}
 {% block realty %}
-    <!--меню пользователя -->
 
-
-
-
-
-       <!-- /меню пользователя -->
 
     {# Выборка есть или нет категории #}
         {% if  realty_pages %}

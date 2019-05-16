@@ -5,26 +5,6 @@
 {% block title %}Удаление :: товара ::{% endblock %}
 
 
-{% block navbar %}
-    <div class="navbar-header"><!---Кнопка Входа --->
-
-    <ul class="nav navbar-nav navbar-right">
-
-
-    </ul>
-    </div><!---Кнопка Входа --->
-
-        <!--Меню-->
-         <ul class="nav navbar-nav navbar-right"><!--Меню-->
-        {% for category in  categorys %}
-
-            <li><a href="{% url 'realty:realty_category_page' category.pk %}">{{ category.category_name }}</a></li>
-
-        {% endfor %}
-        <!--Меню-->
-         </ul>
-
-{% endblock %}
 
 
 
@@ -33,16 +13,16 @@
 
 <div class="row">
 <div class="col-md-3">
-    <h4>{{ realty_page.realty_name }}</h4>
-    <div class="thumbnail">
+
+
+    <div class="feature-pic set-bg" >
+        <br>
         <img class="img-responsive" src="{{ realty_page.main_image.url }}" alt="">
     </div>
 
+    <h5>{{ realty_page.realty_name }}</h5>
+
     <p>Вы хотите удалить товар </p>
-
-
-    <br>
-
 
 <form action="" method="post" enctype="multipart/form-data">
       {% csrf_token %}

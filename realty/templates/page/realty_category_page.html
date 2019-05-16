@@ -61,11 +61,11 @@
 				<div class="col-lg-4 col-md-6">
 					<!-- feature -->
 					<div class="feature-item">
-
+                        <a href="{% url 'realty:realty_page_noe' p.pk %}">
 						<div class="feature-pic set-bg" data-setbg= "{{ MEDIA_URL }} {{ p.main_image.url }}">
                             <div class="sale-notic">{{ p.sale_and_rental }}</div>
 						</div>
-
+                        </a>
 						<div class="feature-text">
 							<div class="text-center feature-title">
 								<h5>{{ p.realty_name }}</h5>

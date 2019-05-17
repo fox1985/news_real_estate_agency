@@ -41,7 +41,7 @@ class Form_Galary_View(FormView):
     """Добавления товара через форму"""
     form_class = Form_realty_page
     template_name = 'edit/new_page.html'
-    success_url = '/'  # переадресация на страницу в случае успешной отправки
+    success_url = '/realty/'  # переадресация на страницу в случае успешной отправки
 
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
@@ -64,7 +64,7 @@ class Realty_PageUpdate(UpdateView, Rrealty_PageEditMixin, Rrealty_PageEditView)
     model = Realty_Page
     template_name = "edit/edit_page.html"
     pk_url_kwarg = "page_id"
-    success_url = '/'
+    success_url = '/realty/'
 
     fields = ['author', 'realty_name', 'category', 'vid_name', 'tip_name', 'page_info', 'price', 'sale_and_rental',
 

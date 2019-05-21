@@ -135,7 +135,9 @@
 
 
 						<h3 class="sl-sp-title bd-no">Location</h3>
-						<div class="pos-map" id="map-canvas"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50311.74170408457!2d-0.7125762133605785!3d37.98917305842002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63aa38720ffc79%3A0xd220b907f2229dc6!2z0KLQvtGA0YDQtdCy0YzQtdGF0LAsINCQ0LvQuNC60LDQvdGC0LUsINCY0YHQv9Cw0L3QuNGP!5e0!3m2!1sru!2skz!4v1558442798378!5m2!1sru!2skz" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
 					</div>
 				</div>
 
@@ -191,7 +193,9 @@
 
 {% endblock %}
 
-
+	<!-- load for map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnZDIWTUThaxMRSsy6BazNadEXdvL69fo"></script>
+	<script src="{% static 'js/map-2.js' %}"></script>
 
 
 

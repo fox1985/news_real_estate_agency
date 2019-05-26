@@ -1,5 +1,5 @@
 {% extends 'main/base.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block realty %}
 
@@ -8,7 +8,7 @@
              <form action="" method="POST" enctype="multipart/form-data">
                  {% csrf_token %}
                  <br>
-                {{ form.as_p }}
+                {{ form|crispy }}
 
                     <br>
                  <button name="submit">Сохранить</button>

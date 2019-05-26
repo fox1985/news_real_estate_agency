@@ -1,6 +1,8 @@
 {% extends 'main/base.html' %}
 {% load staticfiles %}
 
+{% load crispy_forms_tags %}
+
 {% block javascript %}
   {# JQUERY FILE UPLOAD SCRIPTS #}
   <script src="{% static 'js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
@@ -15,17 +17,16 @@
 
 {% block realty %}
 
-     <p>Добавить Старницу </p>
+
+<div class="container">
 
     <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
+          <p>Добавить Старницу </p>
 
          <form method="POST" enctype="multipart/form-data">
          {% csrf_token %}
-
-
-             <br>
-             {{ form.as_p}}
+             {{ form|crispy }}
              <br>
 
      <button name="submit"  >Добавить страницу </button>
@@ -39,13 +40,7 @@
     </div>
 
 
-
-
-
-<br>
-
-
-
+</div>
 
 
 

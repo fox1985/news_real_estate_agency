@@ -25,6 +25,9 @@ urlpatterns = [
 
     url(r'^realty/', include('realty.urls', namespace='realty')),
 
+    # будем подключать urls.py приложения contact
+    url(r'^', include('contact.urls', namespace='contact')),
+
 ]
 
 

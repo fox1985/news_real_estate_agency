@@ -1,0 +1,41 @@
+
+<form action="{% url 'contact:contact' %}" method="post">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+	<div>
+	  <label for="id_subject">Имя:</label>
+
+      <input class="form-control" id="id_subject" name="subject" placeholder="Имя">
+	</div>
+    &nbsp;
+
+    <div>
+	  <label for="id_nomer">Номер ID:</label>
+	  {{ form.nomer.errors }}
+
+      <input class="form-control" id="id_nomer" name="nomer" placeholder="Номер ID">
+	</div>
+
+
+	<div>
+	  <label for="id_sender">E-mail:</label>
+	  {{ form.sender.errors }}
+      <input class="form-control" id="id_sender" name="sender" placeholder="Ваш e-mail">
+	</div>
+
+    &nbsp;
+
+
+
+	<div>
+	  <label for="id_message">Сообщение:</label>
+	  {{ form.message.errors }}
+      <textarea class="form-control" id="id_message" name="message" placeholder="Введите ваше сообщение"></textarea>
+	</div>
+
+
+
+    <br>
+	<button>Отправить сообщение</button>
+</form>

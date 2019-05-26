@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'realty',
     'django_cleanup',
+    'contact',
+    'crispy_forms',
 
 
 ]
@@ -63,7 +65,7 @@ TEMPLATES = [
 
                 os.path.join(BASE_DIR, 'realty/templates'),
                 os.path.join(BASE_DIR, 'loginsys/templates'),
-                os.path.join(BASE_DIR, 'sendemail/templates'),
+                os.path.join(BASE_DIR, 'contact/templates'),
 
                  ]
         ,
@@ -209,9 +211,13 @@ GOOGLE_MAPS_API_KEY = 'AIzaSyCnZDIWTUThaxMRSsy6BazNadEXdvL69fo'
 
 
 
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_HOST_USER = 'artem-85-dav@yandex.ru'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 465
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'artemdav2@gmail.com'
+EMAIL_HOST_PASSWORD = '*578209*457859#'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'artemdav2@gmail.com'
 
+#django-crispy-forms.
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

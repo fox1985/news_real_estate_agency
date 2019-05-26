@@ -3,5 +3,3 @@
 copy/
 db.sqlite3copy
 -------
-
-EMAIL_HOST_PASSWORD = '*578209*457859#'

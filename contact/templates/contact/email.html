@@ -13,6 +13,9 @@
         <div class="post-preview">
             <form method="POST" class="post-form"  action="{% url 'contact:contact' %}">
                 {% csrf_token %}
+
+
+
                 <div>
                   <label for="id_name">Имя:</label>
 
@@ -23,6 +26,12 @@
                   <label for="id_email">E-mail:</label>
                   {{ form.email.errors }}
                   <input class="form-control" id="id_email" name="email" placeholder="Ваш e-mail">
+                </div>
+
+                 <div>
+                  <label for="id_nomer">Номер ID</label>
+
+                  <input class="form-control" id="id_nomer" name="nomer" placeholder="Номер ID">
                 </div>
 
 

@@ -1,9 +1,24 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
+import uuid
+import os
 
-# Create your models here.
+
+
+def get_file_path(instance, filename):
+    """Функция генирирует случайный на имя фото при загрузки"""
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('main_image/img', filename)
+
+
+def get_file_galary(instance, filename):
+    """Функция генирирует случайный на имя фото при загрузки"""
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('galary/img', filename)
+
 
 
 class Category(models.Model):
@@ -56,7 +71,7 @@ class Realty_Page(models.Model):
     description = models.TextField(max_length=100,verbose_name="Дискрипшин", help_text='Описания для поиска Яндекс и googla слова добавлет через запятую',blank=True)
     keywords = models.TextField(max_length=100,verbose_name="Ключивые слова", help_text='Ключивые слова для поиска Яндекс и googla слова добавлет через запятую',blank=True)
 
-    main_image = models.ImageField(upload_to='main_image/img', verbose_name='Фото на главной страници', blank=True)
+    main_image = models.ImageField(upload_to=get_file_path, verbose_name='Фото на главной страници', blank=True)
     published = models.BooleanField(default=False, verbose_name='Опубликован')  # Чек бокс - опубликован!
 
     def img(self):
@@ -84,7 +99,7 @@ class Realty_Page(models.Model):
 
 class Galary_image(models.Model):
     realty_page = models.ForeignKey(Realty_Page, blank=True, null=True, on_delete=models.CASCADE)
-    galary_image = models.ImageField(upload_to='galary/img',verbose_name='Картинка',blank=True)
+    galary_image = models.ImageField(upload_to=get_file_galary,verbose_name='Картинка',blank=True)
     class Meta:
         db_table = 'galary_image'
         verbose_name = u'Галирея'

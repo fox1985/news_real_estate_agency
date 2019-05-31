@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
@@ -19,10 +19,16 @@ def page_contact(request):
             cd = form.cleaned_data
             subject = 'Autister - Новое письмо от {}'.format(cd['name'])
             message = 'Прислал {}. \n \n \n Пишет: {}'.format(cd['email'], cd['message'])
-            send_mail(subject, message, mailfrom, mailto)
+            send_mail(subject, message,  mailfrom, mailto)
             sent = True
     else:
         form = ContactForm()
     return render(request, 'contact/email.html', {'form': form, 'sent': sent})
+
+
+
+
+def post_email(request):
+    em = EmailMessage(subject='name', body='Test', to=['email'], from_email=[])
 
 

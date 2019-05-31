@@ -7,14 +7,14 @@ import os
 
 
 def get_file_path(instance, filename):
-    """Функция генирирует случайный на имя фото при загрузки"""
+    """Функция генирирует новое имя фото при загрузки"""
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join('main_image/img', filename)
 
 
 def get_file_galary(instance, filename):
-    """Функция генирирует случайный на имя фото при загрузки"""
+    """Функция генирирует новое имя фото при загрузки"""
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join('galary/img', filename)

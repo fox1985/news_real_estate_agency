@@ -5,7 +5,7 @@ from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from  news_real_estate_agency.emailsettings import *
+from  news_real_estate_agency.emailsettings import EMAIL_HOST_USER
 
 # Функция формы обратной связи
 
@@ -18,7 +18,7 @@ def page_contact(request):
         if form.is_valid():
             cd = form.cleaned_data
             name = 'Autister - Новое письмо от {} '.format(cd['name'],)
-            message = 'Прислал {}. \n \n \n Пишет: {}. \n \n \n  ID номер {} '.format(cd['email'],  cd['message'], cd['nomer'])
+            message = 'Прислал {}. \n \n \n \n Пишет: {}. \n \n \n  ID номер {} '.format(cd['email'],  cd['message'], cd['nomer'])
             send_mail(name, message, mailfrom,  mailto,)
             sent = True
     else:

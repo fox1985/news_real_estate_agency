@@ -17,18 +17,17 @@ def page_contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            subject = 'Autister - Новое письмо от {}'.format(cd['name'])
-            message = 'Прислал {}. \n \n \n Пишет: {}'.format(cd['email'], cd['message'])
-            send_mail(subject, message,  mailfrom, mailto)
+            name = 'Autister - Новое письмо от {} '.format(cd['name'],)
+            message = 'Прислал {}. \n \n \n Пишет: {}. \n \n \n  ID номер {} '.format(cd['email'],  cd['message'], cd['nomer'])
+            send_mail(name, message, mailfrom,  mailto,)
             sent = True
     else:
         form = ContactForm()
-    return render(request, 'contact/email.html', {'form': form, 'sent': sent})
+    return render(request, 'contact/thanks.html', {'form': form, 'sent': sent})
 
 
 
 
-def post_email(request):
-    em = EmailMessage(subject='name', body='Test', to=['email'], from_email=[])
+
 
 

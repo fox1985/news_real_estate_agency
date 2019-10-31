@@ -2,21 +2,28 @@
 <form action="{% url 'contact:contact' %}" method="post">
     {% csrf_token %}
 
-    {{ form.non_field_errors }}
+
 	<div>
 	  <label for="id_subject">Имя:</label>
 
-      <input class="form-control" id="id_subject" name="subject" placeholder="Имя">
+      <input class="form-control" id="id_subject" name="name" placeholder="Имя">
 	</div>
     &nbsp;
 
 
 	<div>
 	  <label for="id_sender">E-mail:</label>
-	  {{ form.sender.errors }}
-      <input class="form-control" id="id_sender" name="sender" placeholder="Ваш e-mail">
+        {{ form.email.errors }}
+      <input class="form-control" id="id_sender" name="email" placeholder="Ваш e-mail">
 	</div>
 
+    &nbsp;
+
+     <div>
+	  <label for="id_nomer">ID Номер</label>
+         {{ form.nomer.errors }}
+      <input class="form-control" id="id_nomer" name="nomer" placeholder="ID номер">
+	</div>
     &nbsp;
 
 	<div>
@@ -24,6 +31,7 @@
 	  {{ form.message.errors }}
       <textarea class="form-control" id="id_message" name="message" placeholder="Введите ваше сообщение"></textarea>
 	</div>
+
 
 
 

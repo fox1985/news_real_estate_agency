@@ -20,6 +20,7 @@ from django.contrib import admin
 
 
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
@@ -27,6 +28,7 @@ urlpatterns = [
 
     # будем подключать urls.py приложения contact
     url(r'^', include('contact.urls', namespace='contact')),
+
 
 ]
 

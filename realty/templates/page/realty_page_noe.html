@@ -82,7 +82,15 @@
 							</div>
 							<div class="col-xl-4">
 								<a href="#" class="price-btn">€ {{ realty_page.price }}</a>
+
+                                {# ID номер #}
+                                {% if realty_page.room_id %}{# Если поля Комнат равно 0 то его не показывать #}
+								    <p class="price-btn"> ID Номер {{ realty_page.room_id }} </p>
+                                {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
+                                {# ID номер #}
+
 							</div>
+
 						</div>
 
 						<h3 class="sl-sp-title">Детали недвижимости</h3>
@@ -100,9 +108,7 @@
 								<p><i class="fa fa-car"></i> {{ realty_page.garash }} гараж</p>
                                 {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
 
-                                {% if realty_page.room_id %}{# Если поля Комнат равно 0 то его не показывать #}
-								    <p><i class="fa fa-building-o"></i>{{ realty_page.room_id }} ID</p>
-                                {% endif %}{# Если поля Комнат равно 0 то его не показывать #}
+
 
 							</div>
 

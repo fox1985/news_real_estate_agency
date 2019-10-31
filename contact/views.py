@@ -18,7 +18,7 @@ def page_contact(request):
         if form.is_valid():
             cd = form.cleaned_data
             name = 'Autister - Новое письмо от {} '.format(cd['name'],)
-            message = 'Прислал {}. \n \n \n \n Пишет: {}. \n \n \n  ID номер {} '.format(cd['email'],  cd['message'], cd['nomer'])
+            message = 'Прислал {}. \n \n \n \n Пишет: {}. \n \n \n  ID номер: {} '.format(cd['email'],  cd['message'], cd['nomer'])
             send_mail(name, message, mailfrom,  mailto,)
             sent = True
     else:

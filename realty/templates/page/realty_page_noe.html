@@ -28,9 +28,17 @@
 <div class="site-breadcrumb">
 		<div class="container">
 			<a href="/realty/"><i class="fa fa-home"></i>Домой</a>
-            <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:new_page'  %}">Добавить</a></span>
-            <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:edit_page' realty_page.pk %}">редактировать</a></span>
-            <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:delete_page' realty_page.pk %}">удалить товар</a></span>
+            {# Если пользователь не регистрирован товыводим вход и регистрацыю #}
+            {% if not request.user.is_authenticated %}
+                 <p>Добавлять товар могут только авторизированные пользоавтели.
+                     Пожалуста,войдите  или зарегистрируйтесь</p>
+
+            {% else %}
+                <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:new_page'  %}">Добавить</a></span>
+                <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:edit_page' realty_page.pk %}">редактировать</a></span>
+                <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:delete_page' realty_page.pk %}">удалить товар</a></span>
+
+            {% endif %}
 
 		</div>
 	</div>

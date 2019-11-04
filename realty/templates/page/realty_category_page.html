@@ -41,7 +41,17 @@
             {% block home_menu %}
 
 			<a href="/realty/"><i class="fa fa-home"></i>Домой</a>
+                     {# Авторизированый пользователь да или нет #}
+                {% if request.user.is_authenticated %}
+
             <span><i class="fa fa-angle-right"></i><a href="{% url 'realty:new_page'  %}">Добавить</a></span>
+
+                {% else %}
+            <p>Добавлять товар могут только авторизированные пользоавтели.
+            Пожалуста,войдите  или зарегистрируйтесь</p>
+
+                {% endif %}
+                 {# Авторизированый пользователь да или нет #}
             {% endblock %}
 
        <!-- /меню пользователя -->

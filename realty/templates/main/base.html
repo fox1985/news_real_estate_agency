@@ -47,8 +47,22 @@
 							<i class="fa fa-envelope"></i>
 							info.leramiz@colorlib.com
 						</div>
+
+                         {# проверка вошол лили пользователь #}
+                               {% if not request.user.is_authenticated %}
+                                   <i class="text-white">Здравствуйте, гость</i>
+
+                               {% else %}
+                                   <i class="text-white"> Здравствуйте, {{ request.user}} </i>
+
+                               {% endif %}
+                            {# проверка вошол лили пользователь #}
+
+
+
 					</div>
 					<div class="col-lg-6 text-lg-right header-top-right">
+
 						<div class="top-social">
 							<a href=""><i class="fa fa-facebook"></i></a>
 							<a href=""><i class="fa fa-twitter"></i></a>
@@ -56,13 +70,22 @@
 							<a href=""><i class="fa fa-pinterest"></i></a>
 							<a href=""><i class="fa fa-linkedin"></i></a>
 						</div>
+
 						<div class="user-panel">
+                            {# Если пользователь не регистрирован товыводим вход и регистрацыю #}
+                            {% if not request.user.is_authenticated %}
 							<a href=""><i class="fa fa-user-circle-o"></i> Register</a>
 							<a href=""><i class="fa fa-sign-in"></i> Login</a>
+                            {% else %}
+                                <a href=""><i class="fa fa-sign-in"></i> {{ request.user}}</a>
+                            {% endif %}
 						</div>
+
 					</div>
 				</div>
 			</div>
+
+
 
 
 		</div>

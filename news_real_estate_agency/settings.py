@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'contact',
     'crispy_forms',
     'profiles',
+    'accounts',
 
 
 ]
@@ -68,6 +69,7 @@ TEMPLATES = [
                 os.path.join(BASE_DIR, 'loginsys/templates'),
                 os.path.join(BASE_DIR, 'contact/templates'),
                 os.path.join(BASE_DIR, 'profiles/templates'),
+                os.path.join(BASE_DIR, 'accounts/templates'),
 
                  ]
         ,
@@ -153,7 +155,6 @@ MEDIA_URL = '/media/'
 
 
 
-
 #
 #CKEDITOR-----------------------
 #https://github.com/django-ckeditor/django-ckeditor
@@ -224,3 +225,11 @@ from emailsettings import *
 
 #django-crispy-forms.
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+
+"LOGIN_URL: URL для перенаправления пользователя на вход (например, представления с помощью декоратора login_required )"
+
+LOGIN_URL = 'login'
+
+#переход авторизацыи пользователя на главную стараницу
+LOGIN_REDIRECT_URL =  '/realty/'

@@ -29,6 +29,8 @@ urlpatterns = [
     # будем подключать urls.py приложения contact
     url(r'^', include('contact.urls', namespace='contact')),
 
+    url(r'^', include('accounts.urls')),
+
 
 ]
 

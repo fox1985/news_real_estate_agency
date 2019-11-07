@@ -75,9 +75,10 @@
                             {# Если пользователь не регистрирован товыводим вход и регистрацыю #}
                             {% if not request.user.is_authenticated %}
 							<a href=""><i class="fa fa-user-circle-o"></i> Register</a>
-							<a href=""><i class="fa fa-sign-in"></i> Login</a>
+							<a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Войти</a>
                             {% else %}
-                                <a href=""><i class="fa fa-sign-in"></i> {{ request.user}}</a>
+                                <a href="{% url 'logout' %}"><i class="fa fa-sign-in"></i>Выйти</a>
+
                             {% endif %}
 						</div>
 
@@ -103,6 +104,7 @@
 					</div>
                     {% block navbar %}{% endblock %}
 
+
 				</div>
 			</div>
 		</div>
@@ -124,7 +126,12 @@
 
     <div class="site-breadcrumb">
          <div class="container">
-                {% block home_menu %}{% endblock %}
+                <div class="row">
+                    {% block home_menu %}{% endblock %}
+                    {% block main %}{% endblock %}
+                    {% block exit %}{% endblock %}
+                </div>
+
          </div>
 
 
@@ -137,9 +144,11 @@
         <div class="row">
             {% block realty %}{% endblock %}
 
+
         </div><!--/row-->
 
 			<div class="site-pagination">
+
 				<span>1</span>
 				<a href="#">2</a>
 				<a href="#">3</a>

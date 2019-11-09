@@ -32,7 +32,7 @@ class Form_realty_page(forms.ModelForm):
             'author': 'Агент',
             'realty_name' : 'Название товара',
 
-            'category'  : 'Выберите категорию',
+            'category'  : '',
             'vid_name' : 'вид',
 
             'tip_name': 'Тип',
@@ -79,9 +79,18 @@ class Form_realty_page(forms.ModelForm):
 
                       'land_area': 'участка',
 
-
-                      }
-
+                     }
 
 
+
+
+
+
+
+class ContactForm (forms.Form):
+    """Форма обратной связи"""
+    name = forms.CharField(max_length=30)
+    email = forms.EmailField(max_length=254)
+    nomer = forms.CharField(max_length=30)
+    message = forms.CharField(max_length=2000, widget=forms.Textarea, required=True)
 

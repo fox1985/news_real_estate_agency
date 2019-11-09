@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% load crispy_forms_tags %}
@@ -15,7 +15,7 @@
 
 
 
-{% block realty %}
+{% block content %}
 
 
 <div class="container">
@@ -26,12 +26,13 @@
 
          <form method="POST" enctype="multipart/form-data">
          {% csrf_token %}
-             {{ form|crispy }}
+             {{ form.as_p }}
              <br>
 
-     <button name="submit"  >Добавить страницу </button>
 
-         <br>
+
+
+             <button name="submit"  >Добавить страницу </button>
 
          </form>
 

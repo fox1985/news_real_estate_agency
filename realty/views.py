@@ -3,9 +3,14 @@ from realty.models import Category, Realty_Page, Galary_image
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.base import ContextMixin, View
-
-
 #---------------------------------------------------------------------------------
+from django.core.mail import send_mail, BadHeaderError, EmailMessage
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from  news_real_estate_agency.emailsettings import EMAIL_HOST_USER
+
+
 
 
 class CategoryLlistMixin(ContextMixin):
@@ -120,6 +125,25 @@ class Galary_imageDetailView(DetailView, CategoryLlistMixin):
 
 
 #---------------------------------------------------------------------------------------------------------------------
+
+# Функция формы обратной связи
+
+def page_contact(request):
+    mailfrom = EMAIL_HOST_USER
+    mailto = [EMAIL_HOST_USER]
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            name = u'От torrehome.ru  - Новое письмо от {} '.format(cd['name'],)
+            message = u'Прислал {}. \n \n \n \n Пишет: {}. \n \n \n  ID номер: {} '.format(cd['email'],  cd['message'], cd['nomer'])
+            send_mail(name, message, mailfrom,  mailto,)
+
+    else:
+        form = ContactForm()
+    return render(request, 'contact/thanks.html', {'form': form,})
+
+
 
 
 

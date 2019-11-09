@@ -24,11 +24,9 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^realty/', include('realty.urls', namespace='realty')),
+    url(r'^', include('realty.urls', namespace='realty')),
 
-    # будем подключать urls.py приложения contact
-    url(r'^', include('contact.urls', namespace='contact')),
-
+   # профиль мользователя
     url(r'^', include('account.urls')),
 
 

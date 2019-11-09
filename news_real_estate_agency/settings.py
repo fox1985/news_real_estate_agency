@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'realty',
     'django_cleanup',
-    'contact',
     'crispy_forms',
     'account',
 
@@ -66,10 +65,10 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
 
                 os.path.join(BASE_DIR, 'realty/templates'),
-                os.path.join(BASE_DIR, 'loginsys/templates'),
                 os.path.join(BASE_DIR, 'contact/templates'),
-                os.path.join(BASE_DIR, 'profiles/templates'),
-                os.path.join(BASE_DIR, 'accounts/templates'),
+                os.path.join(BASE_DIR, 'account/templates'),
+
+
 
                  ]
         ,

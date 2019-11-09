@@ -7,7 +7,8 @@
 
 
 from django.conf.urls import  url
-from realty.views import  Realty_PageListView, Realty_PageDetailView, Galary_imageDetailView, Galary_imageListView
+from realty.views import Realty_PageListView, Realty_PageDetailView, Galary_imageDetailView, Galary_imageListView, \
+    page_contact
 
 from realty.edit import  Realty_PageUpdate, Realty_PageDelete, Form_Galary_View
 
@@ -49,14 +50,17 @@ urlpatterns = [
 
 
     url(r'^(?:(?P<cat_id>\d+)/)?$', Realty_PageListView.as_view(), name='realty_category_page' ),# товар выводит на главную страницу
+
 #------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
+# ------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
+    # Вызов функцыи обртной связи
+     url(r'^page/comtact/', page_contact, name='contact'),
+#------------------------------------------------------------------------------------------------------------------------------------------
 
 ]
 

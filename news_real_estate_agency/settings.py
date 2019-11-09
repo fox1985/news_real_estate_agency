@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django_cleanup',
     'contact',
     'crispy_forms',
-    'profiles',
-    'accounts',
+    'account',
+
 
 
 ]

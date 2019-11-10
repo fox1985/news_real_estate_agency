@@ -13,7 +13,6 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-
     </ul>
     </div><!---Кнопка Входа --->
 
@@ -40,6 +39,7 @@
 
             {% block home_menu %}
 
+
 			     <a href="/realty/"><i class="fa fa-home"></i>Домой </a>
                      {# Авторизированый пользователь да или нет #}
                 {% if request.user.is_authenticated %}
@@ -50,13 +50,23 @@
 
                 {% endif %}
                  {# Авторизированый пользователь да или нет #}
+
+
+
             {% endblock %}
+
+
+
+
+
 
        <!-- /меню пользователя -->
 
 
 {# Вторая страница #}
 {% block realty %}
+
+
 
 
     {# Выборка есть или нет категории #}

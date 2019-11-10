@@ -232,3 +232,5 @@ LOGIN_URL = 'login'
 
 #переход авторизацыи пользователя на главную стараницу
 LOGIN_REDIRECT_URL =  '/realty/'
+
+

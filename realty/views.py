@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from news_real_estate_agency import settings
 from realty.models import Category, Realty_Page, Galary_image
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -9,6 +10,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from  news_real_estate_agency.emailsettings import EMAIL_HOST_USER
+#отправка собщений пользовтелю
+from django.contrib import messages
 
 
 
@@ -139,9 +142,10 @@ def page_contact(request):
             message = u'Прислал {}. \n \n \n \n Пишет: {}. \n \n \n  ID номер: {} '.format(cd['email'],  cd['message'], cd['nomer'])
             send_mail(name, message, mailfrom,  mailto,)
 
+
     else:
         form = ContactForm()
-    return render(request, 'contact/thanks.html', {'form': form,})
+    return render(request, 'contact/thanks.html')
 
 
 

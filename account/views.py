@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from  django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
@@ -89,6 +89,8 @@ def edit(request):
     return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form })
 
 
-
+def profile(request):
+    profiles =  Profile.objects.all()
+    return  render_to_response('profile',  profiles)
 
 

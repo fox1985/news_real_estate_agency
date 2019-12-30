@@ -20,7 +20,7 @@ class Form_realty_page(forms.ModelForm):
                   'city', 'region', 'bedrooms', 'rooms', 'bathrooms', 'area', 'land_area', 'from_the_sea', 'floor',
                   'room_id',
 
-                  'brief_description', 'body', 'main_image'
+                  'brief_description', 'body', 'main_image', 'published'
 
 
 
@@ -68,6 +68,7 @@ class Form_realty_page(forms.ModelForm):
             'body' : 'Полное описания',
 
             'main_image' : 'Фото на главной страници',
+
 
         }
 

@@ -72,7 +72,7 @@ class Realty_Page(models.Model):
     keywords = models.TextField(max_length=100,verbose_name="Ключивые слова", help_text='Ключивые слова для поиска Яндекс и googla слова добавлет через запятую',blank=True)
 
     main_image = models.ImageField(upload_to=get_file_path, verbose_name='Фото на главной страници', blank=True)
-    published = models.BooleanField(default=False, verbose_name='Опубликован')  # Чек бокс - опубликован!
+    published = models.BooleanField(default=True, verbose_name='Опубликован')  # Чек бокс - опубликован!
 
     def img(self):
         if self.main_image:

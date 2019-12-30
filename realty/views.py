@@ -49,7 +49,7 @@ class Realty_PageListView(ListView, CategoryLlistMixin):
         return context
 
     def get_queryset(self):
-        return Realty_Page.objects.filter(category=self.cat).order_by("realty_name")
+        return Realty_Page.objects.filter(category=self.cat).filter(published=True)
 
 
 

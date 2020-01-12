@@ -3,4 +3,5 @@
 copy/
 media/
 db.sqlite3copy
+*.pyc
 -------

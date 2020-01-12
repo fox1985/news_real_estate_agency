@@ -2,6 +2,6 @@
 .idea/
 copy/
 media/
-db.sqlite3copy
-*.pyc
+db.sqlite3
+
 -------

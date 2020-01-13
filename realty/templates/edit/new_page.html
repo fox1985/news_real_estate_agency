@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'main/base.html' %}
 {% load staticfiles %}
 
 {% load crispy_forms_tags %}
@@ -14,8 +14,7 @@
 {% endblock %}
 
 
-
-{% block content %}
+{% block realty %}
 
 
 <div class="container">
@@ -26,7 +25,7 @@
 
          <form method="POST" enctype="multipart/form-data">
          {% csrf_token %}
-             {{ form.as_p }}
+             {{ form|crispy }}
              <br>
 
 

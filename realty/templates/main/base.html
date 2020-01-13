@@ -76,9 +76,9 @@
                             {# Если пользователь не регистрирован товыводим вход и регистрацыю #}
                             {% if not request.user.is_authenticated %}
 							<a href=""><i class="fa fa-user-circle-o"></i> Register</a>
-							<a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Войти</a>
+							<a href="#"><i class="fa fa-sign-in"></i>Войти</a>
                             {% else %}
-                                <a href="{% url 'logout' %}"><i class="fa fa-sign-in"></i>Выйти</a>
+                                <a href="#"><i class="fa fa-sign-in"></i>Выйти</a>
 
                             {% endif %}
 						</div>

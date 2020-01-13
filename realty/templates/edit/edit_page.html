@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'main/base.html' %}
 {% load crispy_forms_tags %}
 
- {% block content %}
+ {% block realty %}
 
      <p>Редактировать страницу</p>
 
              <form action="" method="POST" enctype="multipart/form-data">
                  {% csrf_token %}
                  <br>
-                {{ form.as_p }}
+                {{ form|crispy }}
 
 
                     <br>

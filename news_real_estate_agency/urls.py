@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^', include('realty.urls', namespace='realty')),
 
    # профиль мользователя
-    url(r'^', include('account.urls')),
+    
 
 
 ]

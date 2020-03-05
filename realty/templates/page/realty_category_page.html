@@ -122,10 +122,10 @@
 
 								<div class="room-info">
 									<div class="rf-left">
-										<p><i class="fa fa-user"></i> имя агинта</p>
+{#										<p><i class="fa fa-user"></i> имя агинта</p>#}
 									</div>
 									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 1 дней назад</p>
+{#										<p><i class="fa fa-clock-o"></i> 1 дней назад</p>#}
 									</div>
 								</div>
 							</div>
@@ -148,6 +148,17 @@
     {% endif %}
    {# Выборка есть или нет категории #}
 
+
+
+
+
+
+
 {% endblock %}
+
+  {% block paginator %}
+      {% include 'paginator/paginator.html' %}
+    {% endblock %}
+
 
 </div><!-- end panel-body-->

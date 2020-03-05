@@ -124,7 +124,7 @@
 
 							<div class="col-md-4">
 								<p><i class="fa fa-bath"></i> {{ realty_page.bathrooms }} Санузлы</p>
-								<p><i class="fa fa-trophy"></i> 5 лет</p>
+{#								<p><i class="fa fa-trophy"></i> 5 лет</p>#}
 							</div>
 
 						</div>
@@ -148,8 +148,9 @@
 
 
 
-						<h3 class="sl-sp-title bd-no">Location</h3>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50311.74170408457!2d-0.7125762133605785!3d37.98917305842002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63aa38720ffc79%3A0xd220b907f2229dc6!2z0KLQvtGA0YDQtdCy0YzQtdGF0LAsINCQ0LvQuNC60LDQvdGC0LUsINCY0YHQv9Cw0L3QuNGP!5e0!3m2!1sru!2skz!4v1558442798378!5m2!1sru!2skz" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+{#						<h3 class="sl-sp-title bd-no">Location</h3>#}
+{#                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50311.74170408457!2d-0.7125762133605785!3d37.98917305842002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63aa38720ffc79%3A0xd220b907f2229dc6!2z0KLQvtGA0YDQtdCy0YzQtdGF0LAsINCQ0LvQuNC60LDQvdGC0LUsINCY0YHQv9Cw0L3QuNGP!5e0!3m2!1sru!2skz!4v1558442798378!5m2!1sru!2skz" #}
+{#                                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>#}
 
 
 					</div>
@@ -158,16 +159,16 @@
 				<!-- sidebar -->
 				<div class="col-lg-4 col-md-7 sidebar">
 					<div class="author-card">
-						<div class="author-img set-bg" data-setbg="{% static 'img/author.jpg' %}"></div>
+{#						<div class="author-img set-bg" data-setbg="{% static 'img/author.jpg' %}"></div>#}
 
                         <div class="author-info">
-							<h5>Gina Wesley</h5>
-							<p>Real Estate Agent</p>
+{#							<h5>Gina Wesley</h5>#}
+{#							<p>Real Estate Agent</p>#}
 						</div>
 
 						<div class="author-contact">
-							<p><i class="fa fa-phone"></i>(567) 666 121 2233</p>
-							<p><i class="fa fa-envelope"></i>ginawesley26@gmail.com</p>
+							<p><i class="fa fa-phone"></i>Mov (+34)677 155 322</p>
+							<p><i class="fa fa-envelope"></i>es@torrehome.com</p>
 						</div>
 
 					</div>
@@ -176,23 +177,21 @@
 						<h5>У вас есть вопросы?</h5>
                         {% include 'contact/contact.html' %}
 
-
-
 					</div>
 
                     {# related-properties#}
-					<div class="related-properties">
-						<h2>Связанное свойство</h2>
-						<div class="rp-item">
-							<div class="rp-pic set-bg" data-setbg="{% static 'img/feature/1.jpg' %}">
-								<div class="sale-notic">FOR SALE</div>
-							</div>
-							<div class="rp-info">
-								<h5>1963 S Crescent Heights Blvd</h5>
-								<p><i class="fa fa-map-marker"></i>Los Angeles, CA 90034</p>
-							</div>
-							<a href="#" class="rp-price">€ {{ realty_page.price }}</a>
-						</div>
+{#					<div class="related-properties">#}
+{#						<h2>Связанное свойство</h2>#}
+{#						<div class="rp-item">#}
+{#							<div class="rp-pic set-bg" data-setbg="{% static 'img/feature/1.jpg' %}">#}
+{#								<div class="sale-notic">FOR SALE</div>#}
+{#							</div>#}
+{#							<div class="rp-info">#}
+{#								<h5>1963 S Crescent Heights Blvd</h5>#}
+{#								<p><i class="fa fa-map-marker"></i>Los Angeles, CA 90034</p>#}
+{#							</div>#}
+{#							<a href="#" class="rp-price">€ {{ realty_page.price }}</a>#}
+{#						</div>#}
 
 					</div>{# /related-properties#}
 
@@ -202,6 +201,8 @@
 		</div><!--container-->
 	</section>
 	<!-- Page end -->
+
+
 
 
 {% endblock %}

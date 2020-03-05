@@ -80,14 +80,17 @@
 					<!-- feature -->
 					<div class="feature-item">
                         <a href="{% url 'realty:realty_page_noe' p.pk %}">
-						<div class="feature-pic set-bg" data-setbg= "{{ MEDIA_URL }} {{ p.main_image.url }}">
+
+                            {% if p.main_image %}
+						     <div class="feature-pic set-bg" data-setbg= "{{ MEDIA_URL }} {{ p.main_image.url }}">
+                            {% endif %}
                             <div class="sale-notic">{{ p.sale_and_rental }}</div>
 						</div>
                         </a>
 						<div class="feature-text">
 							<div class="text-center feature-title">
 								<h5>{{ p.realty_name }}</h5>
-								<p><i class="fa fa-map-marker"></i> Los Angeles, CA 90034</p>
+{#								<p><i class="fa fa-map-marker"></i> Los Angeles, CA 90034</p>#}
 							</div>
 
 							<div class="room-info-warp">

@@ -62,7 +62,9 @@ img {
 }
 
 .text-white {
-    color:#000000 !important;
+    color:#FFFFFF !important;
+	font-size: 20px;
+	padding: 10px;
 }
 
 input:focus,
@@ -231,7 +233,7 @@ ol {
 }
 
 .top-info {
-	font-size: 14px;
+	font-size: 17px;
 	color: #fff;
 	display: inline-block;
 }
@@ -297,7 +299,7 @@ ol {
 
 .main-menu li a {
 	display: inline-block;
-	color: #000000;
+	color: #ffffff;
 	text-transform: uppercase;
 	margin-left: 30px;
 	padding: 12px 5px;

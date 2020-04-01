@@ -16,6 +16,8 @@ from django.contrib import messages
 
 
 
+
+
 class CategoryLlistMixin(ContextMixin):
     """Выводит меню категории"""
     def get_context_data(self, **kwargs):
@@ -24,13 +26,14 @@ class CategoryLlistMixin(ContextMixin):
         return context
 
 
+
 class Realty_PageListView(ListView, CategoryLlistMixin):
     """Вывод страницы катигории  realty_pages"""
     template_name = "page/realty_category_page.html"
     context_object_name = 'realty_pages'
     queryset = Realty_Page.objects.order_by("realty_name")
 
-    paginate_by = 10
+    paginate_by = 1
     cat = None
 
     def get(self, request, *args, **kwargs):

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'realty',
     'django_cleanup',
     'crispy_forms',
+    'contact',
+    'realters',
     
 
 ]

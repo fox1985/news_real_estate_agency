@@ -15,7 +15,7 @@ class Form_realty_page(forms.ModelForm):
 
     class Meta:
         model = Realty_Page
-        fields = ['author', 'realty_name', 'category', 'vid_name', 'tip_name', 'page_info', 'price', 'sale_and_rental',
+        fields = ['realtor', 'realty_name', 'category', 'vid_name', 'tip_name', 'page_info', 'price', 'sale_and_rental',
 
                   'city', 'region', 'bedrooms', 'rooms', 'bathrooms', 'area', 'land_area', 'from_the_sea', 'floor',
                   'room_id',

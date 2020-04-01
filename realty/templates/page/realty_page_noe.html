@@ -158,17 +158,18 @@
 
 				<!-- sidebar -->
 				<div class="col-lg-4 col-md-7 sidebar">
+                    <!--Реалтер-->
 					<div class="author-card">
-{#						<div class="author-img set-bg" data-setbg="{% static 'img/author.jpg' %}"></div>#}
+						<div class="author-img set-bg" data-setbg="{{ realty_page.realtor.photo.url}}"></div>
 
                         <div class="author-info">
-{#							<h5>Gina Wesley</h5>#}
-{#							<p>Real Estate Agent</p>#}
+							<h5>{{ realty_page.realtor.name }}</h5>
+                            <p>{{ realty_page.realtor.description }}</p>
 						</div>
 
 						<div class="author-contact">
-							<p><i class="fa fa-phone"></i>Mov (+34)677 155 322</p>
-							<p><i class="fa fa-envelope"></i>es@torrehome.com</p>
+							<p><i class="fa fa-phone"></i>{{ realty_page.realtor.phone }}</p>
+							<p><i class="fa fa-envelope"></i>{{ realty_page.realtor.email }}</p>
 						</div>
 
 					</div>
@@ -176,7 +177,6 @@
 					<div class="contact-form-card">
 						<h5>У вас есть вопросы?</h5>
                         {% include 'contact/contact.html' %}
-
 					</div>
 
                     {# related-properties#}

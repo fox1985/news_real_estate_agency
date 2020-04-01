@@ -16,9 +16,6 @@ from realty.edit import  Realty_PageUpdate, Realty_PageDelete, Form_Galary_View
 
 
 
-
-
-
 urlpatterns = [
 
 

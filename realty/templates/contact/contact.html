@@ -1,35 +1,73 @@
 
+{#<form action="{% url 'realty:contact' %}" method="post">#}
+{#    {% csrf_token %}#}
+{##}
+{##}
+{#	<div>#}
+{#	  <label for="id_subject">Имя:</label>#}
+{##}
+{#      <input class="form-control" type="text" name="name" placeholder="Имя" required>#}
+{#	</div>#}
+{#    &nbsp;#}
+{##}
+{##}
+{#	<div>#}
+{#	  <label for="id_sender">E-mail:</label>#}
+{#      <input class="form-control" type="email" name="email" placeholder="Ваш e-mail" required>#}
+{#	</div>#}
+{##}
+{#    &nbsp;#}
+{##}
+{#     <div>#}
+{#	  <label for="id_nomer">ID Номер</label>#}
+{#      <input class="form-control" id="id_nomer" name="nomer" placeholder="ID номер" required>#}
+{#	</div>#}
+{#    &nbsp;#}
+{##}
+{#	<div>#}
+{#	  <label for="id_message">Сообщение:</label>#}
+{#      <textarea class="form-control" id="id_message" name="message" placeholder="Введите ваше сообщение"></textarea>#}
+{#	</div>#}
+{##}
+{##}
+{#    <br>#}
+{#	<button>Отправить сообщение</button>#}
+{#</form>#}
+
+
+
 <form action="{% url 'realty:contact' %}" method="post">
     {% csrf_token %}
 
 
-	<div>
-	  <label for="id_subject">Имя:</label>
 
-      <input class="form-control" type="text" name="name" placeholder="Имя" required>
+	<div>
+        <label for="id_subject">Имя:</label>
+        <input class="form-control" type="text" name="{{ name }}" placeholder="Имя" required>
 	</div>
-    &nbsp;
 
+    <div>
+        <label for="property_name" class="col-form-label"></label>
+        <input type="text" name="listing" class="form-control" value="{{ realty_page.category }}">
+    </div>
 
-	<div>
-	  <label for="id_sender">E-mail:</label>
-      <input class="form-control" type="email" name="email" placeholder="Ваш e-mail" required>
+    <div>
+        <label for="id_sender">E-mail:</label>
+        <input class="form-control" type="email" name="email" placeholder="{{ realty_page.realtor.email }}" required>
 	</div>
 
     &nbsp;
 
      <div>
-	  <label for="id_nomer">ID Номер</label>
-      <input class="form-control" id="id_nomer" name="nomer" placeholder="ID номер" required>
+         <label for="id_nomer">ID Номер</label>
+         <input class="form-control" id="id_nomer" name="{{ nomer_id }}" placeholder="{{ realty_page.room_id }}" required>
 	</div>
     &nbsp;
 
 	<div>
 	  <label for="id_message">Сообщение:</label>
-      <textarea class="form-control" id="id_message" name="message" placeholder="Введите ваше сообщение"></textarea>
+      <textarea class="form-control" id="body" name="{{ body }}" placeholder="Введите ваше сообщение"></textarea>
 	</div>
-
-
 
 
     <br>

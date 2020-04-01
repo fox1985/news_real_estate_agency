@@ -4,6 +4,7 @@ from django.db import models
 import uuid
 import os
 from django.contrib.auth.models import User
+from realters.models import Realtor
 
 
 def get_file_path(instance, filename):
@@ -46,7 +47,7 @@ class Info(models.Model):
 
 
 class Realty_Page(models.Model):
-    author = models.ForeignKey(User, verbose_name='агент')
+    realtor = models.ForeignKey(Realtor,on_delete=models.DO_NOTHING)
     realty_name = models.CharField(max_length=200, verbose_name='Название товара',)
     category = models.ForeignKey(Category, verbose_name='категория')
     vid_name = models.CharField(max_length=100, verbose_name='вид', help_text='Вид недвижимости на пример новострой',blank=True)

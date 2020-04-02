@@ -43,7 +43,7 @@
 
 	<div>
         <label for="id_subject">Имя:</label>
-        <input class="form-control" type="text" name="{{ name }}" placeholder="Имя" required>
+        <input class="form-control" type="text" name="{{ name }}" placeholder="Имя" required value="{{ realty_page.realtor.name }}">
 	</div>
 
     <div>
@@ -53,14 +53,14 @@
 
     <div>
         <label for="id_sender">E-mail:</label>
-        <input class="form-control" type="email" name="email" placeholder="{{ realty_page.realtor.email }}" required>
+        <input class="form-control" type="email" name="email" placeholder="email" required value="{{ realty_page.realtor.email }}">
 	</div>
 
     &nbsp;
 
      <div>
          <label for="id_nomer">ID Номер</label>
-         <input class="form-control" id="id_nomer" name="{{ nomer_id }}" placeholder="{{ realty_page.room_id }}" required>
+         <input class="form-control" id="id_nomer" name="{{ nomer_id }}" placeholder="Номер ID" required value="{{ realty_page.room_id }}">
 	</div>
     &nbsp;
 

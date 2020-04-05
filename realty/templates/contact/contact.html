@@ -1,5 +1,4 @@
-
-{#<form action="{% url 'realty:contact' %}" method="post">#}
+{#<form action="{% url 'contact:contact' %}" method="post">#}
 {#    {% csrf_token %}#}
 {##}
 {##}
@@ -36,37 +35,39 @@
 
 
 
-<form action="{% url 'realty:contact' %}" method="post">
-    {% csrf_token %}
 
+
+
+<form action="{% url 'contact:contact' %}" method="post">
+    {% csrf_token %}
 
 
 	<div>
         <label for="id_subject">Имя:</label>
-        <input class="form-control" type="text" name="{{ name }}" placeholder="Имя" required value="{{ realty_page.realtor.name }}">
+        <input class="form-control" type="text"  placeholder="Имя" required value="{{ realty_page.realtor.name }}">
 	</div>
 
     <div>
         <label for="property_name" class="col-form-label"></label>
-        <input type="text" name="listing" class="form-control" value="{{ realty_page.category }}">
+        <input type="text" name="category" class="form-control" value="{{ realty_page.category }}">
     </div>
 
     <div>
         <label for="id_sender">E-mail:</label>
-        <input class="form-control" type="email" name="email" placeholder="email" required value="{{ realty_page.realtor.email }}">
+        <input class="form-control" type="email" placeholder="email" required value="{{ realty_page.realtor.email }}">
 	</div>
 
     &nbsp;
 
      <div>
          <label for="id_nomer">ID Номер</label>
-         <input class="form-control" id="id_nomer" name="{{ nomer_id }}" placeholder="Номер ID" required value="{{ realty_page.room_id }}">
+         <input class="form-control" id="id_nomer"  placeholder="Номер ID" required value="{{ realty_page.room_id }}">
 	</div>
     &nbsp;
 
 	<div>
 	  <label for="id_message">Сообщение:</label>
-      <textarea class="form-control" id="body" name="{{ body }}" placeholder="Введите ваше сообщение"></textarea>
+      <textarea class="form-control" id="body"  placeholder="Введите ваше сообщение"></textarea>
 	</div>
 
 

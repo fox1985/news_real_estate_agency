@@ -2,6 +2,6 @@ from django.conf.urls import  url
 from . import views
 
 urlpatterns = [
-    url('contact', views.contact, name='contact'),
+    url('', views.FeedBackView.as_view(), name='contact'),
 
 ]

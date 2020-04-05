@@ -23,10 +23,11 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
     url(r'^', include('realty.urls', namespace='realty')),
 
-   # профиль мользователя
+    url(r'^contact/', include('contact.urls',  namespace='contact')),
+
+
     
 
 

@@ -7,8 +7,7 @@
 
 
 from django.conf.urls import  url
-from realty.views import Realty_PageListView, Realty_PageDetailView, Galary_imageDetailView, Galary_imageListView, \
-    page_contact
+from realty.views import Realty_PageListView, Realty_PageDetailView, Galary_imageDetailView, Galary_imageListView
 
 from realty.edit import  Realty_PageUpdate, Realty_PageDelete, Form_Galary_View
 
@@ -55,8 +54,6 @@ urlpatterns = [
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
-    # Вызов функцыи обртной связи
-     url(r'^page/comtact/', page_contact, name='contact'),
 #------------------------------------------------------------------------------------------------------------------------------------------
 
 ]

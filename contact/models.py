@@ -10,7 +10,7 @@ class Contact(models.Model):
     category = models.CharField(max_length=100)
     email = models.EmailField()
     nomer_id = models.CharField(max_length=100)
-    body = models.TextField()
+    message = models.TextField()
 
     def __unicode__(self):
         return self.mame

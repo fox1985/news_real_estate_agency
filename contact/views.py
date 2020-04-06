@@ -13,5 +13,6 @@ class FeedBackView(View):
     form = ContactForm(request.POST)
     if form.is_valid():
       form.save()
+
     return  redirect('/realty/')
 

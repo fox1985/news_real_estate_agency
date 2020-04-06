@@ -43,17 +43,17 @@
 
 
 	<div>
-        <label for="id_subject">Имя:</label>
+        <label for="name">Имя:</label>
         <input class="form-control" type="text"  placeholder="Имя" required value="{{ realty_page.realtor.name }}">
 	</div>
 
     <div>
-        <label for="property_name" class="col-form-label"></label>
+        <label for="category" class="col-form-label"></label>
         <input type="text" name="category" class="form-control" value="{{ realty_page.category }}">
     </div>
 
     <div>
-        <label for="id_sender">E-mail:</label>
+        <label for="email">E-mail:</label>
         <input class="form-control" type="email" placeholder="email" required value="{{ realty_page.realtor.email }}">
 	</div>
 
@@ -66,8 +66,8 @@
     &nbsp;
 
 	<div>
-	  <label for="id_message">Сообщение:</label>
-      <textarea class="form-control" id="body"  placeholder="Введите ваше сообщение"></textarea>
+	  <label for="message">Сообщение:</label>
+      <textarea class="form-control" id="message"  placeholder="Введите ваше сообщение"></textarea>
 	</div>
 
 

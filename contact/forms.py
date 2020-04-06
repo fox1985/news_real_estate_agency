@@ -6,4 +6,4 @@ class ContactForm (forms.ModelForm):
     """Форма обратной связи"""
     class Meta:
         model = Contact
-        fields = ['name', 'category', 'email', 'nomer_id', 'body']
+        fields = ['name', 'category', 'email', 'nomer_id', 'message']

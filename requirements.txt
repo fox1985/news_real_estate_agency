@@ -1,4 +1,4 @@
-django==1.11.16
+django==1.11.29
 django-cleanup==2.1.0
 Pillow==6.2.1
 django-crispy-forms==1.7.2
